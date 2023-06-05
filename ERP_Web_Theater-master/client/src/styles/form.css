@@ -1,0 +1,14 @@
+.div-to-align {
+  width: 75%;
+  padding: 40px 20px;
+
+  /* .... */
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+}

@@ -1,0 +1,734 @@
+{
+  "info": {
+    "_postman_id": "20e1cc16-1774-4734-a643-926c624715b0",
+    "name": "ERP_Project",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Genre",
+      "item": [
+        {
+          "name": "AddGenre",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{   \r\n    \"nameGenre\":\"KOMEDIJA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/genre/addGenre",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "genre", "addGenre"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllGenre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/genre/allGenre",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "genre", "allGenre"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteGenre",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/genre/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "genre", "5"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateGenre",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \r\n        \"nameGenre\": \"BALET\",\r\n        \"createdAt\": \"2022-05-08T13:58:36.000Z\",\r\n        \"updatedAt\": \"2022-05-08T13:58:36.000Z\"\r\n    }"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/genre/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "genre", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetGenrePerformances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Performer",
+      "item": [
+        {
+          "name": "AddPerformer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstNamePerformer\":\"Johnny\",\r\n    \"lastNamePerformer\":\"Depp\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/performer",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performer"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllPerformers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeletePerformer",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performer/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performer", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdatePerformer",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n     \r\n        \"firstNamePerformer\": \"Sandra\",\r\n        \"lastNamePerformer\": \"Bullock\",\r\n        \"createdAt\": \"2022-05-08T15:43:13.000Z\",\r\n        \"updatedAt\": \"2022-05-08T15:43:13.000Z\"\r\n    }"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/performer/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performer", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetOnePerformer",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performer/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performer", "2"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "item": [
+        {
+          "name": "AddPerformance",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"performanceName\":\"Labudovo jezero\",\r\n    \"dateOfThePerformance\":\"2021-10-17 15:40:10\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/performance",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performance"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllPerformances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performance/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performance", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetOnePerformance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeletePerformance",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllAboutPerformances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/allAboutPerformances/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "allAboutPerformances", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdatePerformance",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/performance",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "performance"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Theater",
+      "item": [
+        {
+          "name": "AddTheater",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"theaterName\":\"Novosadsko pozoriste\",\r\n    \"address\":\"Jovana Subotica 3-5\",\r\n    \"phoneNumber\":\"0688888885\", \r\n    \"city\":\"Novi Sad\",\r\n    \"performanceId\":1\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/theater",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theater"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllTheater",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/theater",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theater"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateTheater",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteTheater",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/theater/5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theater", "5"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "SignUp",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"srdjan\",\r\n    \"email\":\"srdjan@gmail.com\",\r\n    \"password\":\"srdjan\",\r\n    \"roles\":[\"user\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signup",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "signup"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PublicAccess",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "x-access-token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUyMDA4NTczLCJleHAiOjE2NTIwOTQ5NzN9.PRRpI5qupuC0lls183r985Qb6g6_lr0hqadovithwd8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8080/api/test/mod",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "test", "mod"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "SignIn",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\":\"srdjan\",\r\n    \"password\":\"srdjan\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/auth/signin",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "auth", "signin"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Theater hall",
+      "item": [
+        {
+          "name": "AddTheaterHall",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"numberOfHall\":2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/theaterHall",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theaterHall"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllTheaterHalls",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/theaterHall",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theaterHall"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetOneTheaterHall",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/theaterHall/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theaterHall", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateTheaterHall",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 1,\r\n    \"numberOfHall\": 3\r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/theaterHall/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theaterHall", "1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteTheaterHall",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/theaterHall/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "theaterHall", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllAboutTheaterHall",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Seats",
+      "item": [
+        {
+          "name": "AddSeats",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"numberOfSeat\":15,\r\n    \"rowNumber\":5,\r\n    \"theaterHallId\":1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/seat",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "seat"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllSeats",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Reservation",
+      "item": [
+        {
+          "name": "AddReservation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"numberOfTickets\":5,\r\n    \"dateOfReservation\":\"2022-10-17 15:40:10\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reservation",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservation"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllReservations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/reservation",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservation"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetSingleReservation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateReservation",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \r\n    \"numberOfTickets\": 2,\r\n    \"dateOfReservation\": \"2022-10-17T13:40:10.000Z\",\r\n    \"createdAt\": \"2022-05-10T09:19:41.000Z\",\r\n    \"updatedAt\": \"2022-05-10T09:19:41.000Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/reservation/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "reservation", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllAboutReservation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ticket",
+      "item": [
+        {
+          "name": "AddTickets",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"ticketPrice\":500,\r\n   \"availability\":true,\r\n    \"ticketNumber\":200\r\n   \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/ticket",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "ticket"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GetAllTickets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateTicket",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \r\n    \"reservationId\": 1,\r\n    \"ticketPrice\": 200,\r\n    \"availability\": true,\r\n    \"ticketNumber\": 200,\r\n    \"updatedAt\": \"2022-05-11T18:30:50.169Z\",\r\n    \"createdAt\": \"2022-05-11T18:30:50.169Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/ticket/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["api", "ticket", "2"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
