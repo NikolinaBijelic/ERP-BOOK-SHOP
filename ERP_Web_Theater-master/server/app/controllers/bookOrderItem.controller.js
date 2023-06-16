@@ -17,6 +17,7 @@ const createOrderItem = async (req, res) => {
       price: req.body.price,
       amount: req.body.amount,
       orderId: req.body.orderId,
+      availableStock:req.body.availableStock
   
     };
   
@@ -101,7 +102,47 @@ const updateOrderItem = async (req, res) => {
   }
 };
 
+//update amount order
+const updateOrderItemAmount = async (req, res) => {
+  try {
+    const id = req.params.id;
+    //const orderItemId = req.body.orderItemId;
+    const newAmount = req.body.amount;
 
+    // Fetch the current order item from the database
+    const orderItem = await OrderItem.findOne({ where: { id: id } });
+
+    if (!orderItem) {
+      return res.status(404).send('Order item not found');
+    }
+
+    // Check if the requested amount exceeds the available stock
+    const availableStock = orderItem.availableStock;
+    if (newAmount > availableStock) {
+      return res.status(400).send('Requested amount exceeds available stock');
+    }
+
+    // Perform the database update operation
+    const updatedOrderItem = await OrderItem.update(
+      { amount: newAmount },
+      { where: { id: id } }
+    );
+
+    // Handle any errors raised by the trigger
+    if (updatedOrderItem[0] === 0) {
+      return res.status(400).send('Failed to update order item');
+    }
+
+    res.status(200).send(updatedOrderItem);
+  } catch (err) {
+    // Check for the custom trigger error and handle it separately
+    if (err.code === '45000') {
+      return res.status(400).send(err.message);
+    }
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
+};
 
 // 5.Delete order item
 const deleteOrderItem= async (req, res) => {
@@ -121,6 +162,7 @@ module.exports = {
   getAllOrderItems,
   getOneOrderItem,
   updateOrderItem,
+  updateOrderItemAmount,
   deleteOrderItem
 };
 

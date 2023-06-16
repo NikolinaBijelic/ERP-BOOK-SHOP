@@ -26,10 +26,11 @@ const CARD_OPTIONS = {
 
 const PaymentForm = ({data}) => {
   const [success, setSuccess] = useState(false);
+  const [payError,setPayError]=useState(false);
   const stripe = useStripe();
   const elements = useElements();
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log('currentUser',user)
+  console.log('error', payError);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,10 +42,13 @@ const PaymentForm = ({data}) => {
     if (!error) {
       try {
         const { id } = paymentMethod;
+        console.log('pay id',typeof id)
         const response = await axios.post("http://localhost:8080/payment", {
           amount:data.orderItem && data.orderItem.price,
-          id: id,
-          customer:user.email
+          id: id.toString(),
+          orderItemId:data.orderItem && data.orderItem.id,
+          itemAmount:data.orderItem && data.orderItem.amount
+        
         });
         if (response.data.success) {
           console.log("Successful payment");
@@ -52,9 +56,11 @@ const PaymentForm = ({data}) => {
         }
       } catch (error) {
         console.log("Error", error);
+        setPayError(true);
       }
     } else {
       console.log(error.message);
+      setPayError(true);
     }
   };
   return (
@@ -84,6 +90,13 @@ const PaymentForm = ({data}) => {
         </div>
         </div>
       )}
+      {payError &&   
+          <div>
+          <h2>Neuspesno</h2>
+          <div>
+          <p>Nije moguce izvrsiti kupovinu, jer uneta kolicina nije na stanju!</p>
+        </div>
+        </div>}
     </>
   );
 };

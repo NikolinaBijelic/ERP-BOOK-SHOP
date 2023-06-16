@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       amount: {
         type: DataTypes.INTEGER,
       },
+      availableStock:DataTypes.INTEGER
       
     });
     return OrderItem;
