@@ -20,10 +20,6 @@ const removeAllTheatre = () => {
   return http.delete(`/theater`);
 };
 
-//genre
-const getAllGenres = () => {
-  return http.get(`/genre/allGenre`);
-};
 
 //book
 const getAllBooks = (params) => {
@@ -59,6 +55,45 @@ const updateOrder = (id, data) => {
 const removeOrder = (id) => {
   return http.delete(`/order/${id}`);
 };
+
+//genre
+const getAllGenre = (params) => {
+  return http.get(`/bookGenre`, { params });
+};
+const getByIdGenre = (id) => {
+  return http.get(`/bookGenre/${id}`);
+};
+const createGenre = (data) => {
+  return http.post(`/bookGenre`, data);
+};
+const updateGenre = (id, data) => {
+  return http.put(`/bookGenre/${id}`, data);
+};
+const removeGenre = (id) => {
+  return http.delete(`/bookGenre/${id}`);
+};
+
+
+
+
+
+//ORDER
+
+const getAllOrderItems = (params) => {
+  return http.get(`/orderItem`, { params });
+};
+const getByIdOrderItem = (id) => {
+  return http.get(`/orderItem/${id}`);
+};
+const createOrderItem = (data) => {
+  return http.post(`/orderItem`, data);
+};
+const updateOrderItem = (id, data) => {
+  return http.put(`/orderItem/${id}`, data);
+};
+const removeOrderItem = (id) => {
+  return http.delete(`/orderItem/${id}`);
+};
 const DataService = {
   getAll,
   getByIdTheatre,
@@ -76,6 +111,17 @@ const DataService = {
   createOrder,
   updateOrder,
   removeOrder,
-  getAllGenres,
+  getAllOrderItems,
+  getByIdOrderItem,
+  createOrderItem,
+  updateOrderItem,
+  removeOrderItem,
+  getAllGenre,
+  removeGenre,
+  updateGenre,
+  createGenre,
+  getByIdGenre,
+
+
 };
 export default DataService;

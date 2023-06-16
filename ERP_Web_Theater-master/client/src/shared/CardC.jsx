@@ -5,13 +5,15 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
 import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import moment from "moment";
-
+import { getOrderItems } from "../store/actions/Message";
+import { useDispatch, } from "react-redux";
 import DataService from "../store/services/DataService";
+
 const CardC = ({ data }) => {
-  const book = useSelector((state) => state.bookReducer);
+ // const book = useSelector((state) => state.bookReducer);
 
   const initialBookState = {
     id: null,
@@ -26,6 +28,12 @@ const CardC = ({ data }) => {
   const [currentBook, setCurrentBook] = useState(
     initialBookState
   );
+
+  const orderItem = useSelector((state) => state.orderItemReducer);
+
+  const dispatch = useDispatch();
+
+
   const getBook = (id) => {
     DataService.getByIdBook(id)
       .then((response) => {
@@ -36,11 +44,18 @@ const CardC = ({ data }) => {
         console.log(err);
       });
   };
-  console.log(currentBook);
+
   const { id } = useParams();
+const price=orderItem.content && orderItem.content.map(t=>t.price).find(p=>p)
+
   useEffect(() => {
     getBook(id);
   }, [id]);
+
+  useEffect(() => {
+    dispatch(getOrderItems())
+  }, [dispatch]);
+
   return (
     <Container
       sx={{
@@ -62,10 +77,12 @@ const CardC = ({ data }) => {
           <Typography variant="h5" component="div">
             {data.Bookname}
           </Typography>
-          {/* <Typography sx={{ mb: 1.5, paddingTop: 2 }} color="text.secondary">
-            <h6>Datum izvodjenja:</h6>
-            {data.dateOfThePerformance}
-          </Typography> */}
+        
+              <Typography sx={{ mb: 1.5, paddingTop: 2 }} color="text.secondary">
+              <h6>Cena: {price || '900'}</h6>
+            </Typography>
+         
+     
         </CardContent>
         <CardActions style={{ justifyContent: "center" }}>
           <Link to={`/book-payment/` + data.id}>

@@ -56,14 +56,13 @@ const EditBook = (props) => {
   const updateContent = () => {
     setLoadingUpdate(true)
     dispatch(updateBook(currentBook.id, currentBook))
-      .then((response) => {
-        console.log(response);
-        setMessage("The book was updated successfully!");
+      .then(() => {
         navigate("/api/book");
         setLoadingUpdate(false)
       })
       .catch((err) => {
         console.log(err);
+         setLoadingUpdate(false)
       });
   };
 
@@ -76,6 +75,7 @@ const EditBook = (props) => {
       })
       .catch((e) => {
         console.log(e);
+        setLoadingDelete(false)
       });
   };
   

@@ -8,7 +8,7 @@ import DataService from "../store/services/DataService";
 import { useParams } from "react-router-dom";
 
 const PUBLIC_KEY =
-  "sk_test_51LIW2ZFxQfTuV41Y5i9igpVIsqqo3LLsaY4yDV59eRdn03UHOvmIKyQbQsYZ9p7c0aQS0KcBD1VYlBEApCtbWAwp00TsnBdNaD";
+  "pk_test_51LIW2ZFxQfTuV41Y9BAQ9mgNIeZ1f2C4VlVyUSoTliJ04tiqWdgNWPdgBqKIhMNLcYh4JE3DcSf2yKyewWXLR7ye00MKMYtKyt";
 
 const stripeTestPromise = loadStripe(PUBLIC_KEY);
 const StripeContainer = ({ onSubmit }) => {
@@ -35,7 +35,7 @@ const StripeContainer = ({ onSubmit }) => {
         console.log(err);
       });
   };
-  //console.log(currentPerformance.ticket.ticketPrice);
+  console.log('currentBook',currentBook);
   const { id } = useParams();
   useEffect(() => {
     getBook(id);
@@ -43,7 +43,7 @@ const StripeContainer = ({ onSubmit }) => {
   return (
     <div>
       <Elements stripe={stripeTestPromise}>
-        <PaymentForm onSubmit={onSubmit} />
+        <PaymentForm onSubmit={onSubmit} data={currentBook}/>
       </Elements>
     </div>
   );

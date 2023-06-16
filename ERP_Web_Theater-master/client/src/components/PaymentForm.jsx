@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import "./PaymentFormStyle.css";
 
 const CARD_OPTIONS = {
@@ -23,10 +24,12 @@ const CARD_OPTIONS = {
   },
 };
 
-const PaymentForm = () => {
+const PaymentForm = ({data}) => {
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const user = JSON.parse(localStorage.getItem("user"));
+  console.log('currentUser',user)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,8 +42,9 @@ const PaymentForm = () => {
       try {
         const { id } = paymentMethod;
         const response = await axios.post("http://localhost:8080/payment", {
-          amount: 1000,
+          amount:data.orderItem && data.orderItem.price,
           id: id,
+          customer:user.email
         });
         if (response.data.success) {
           console.log("Successful payment");
@@ -70,7 +74,14 @@ const PaymentForm = () => {
         </form>
       ) : (
         <div>
-          <h2>You bought a ticket</h2>
+          <h2>Uspesno ste kupili knjigu {data.Bookname}</h2>
+          <div>
+          <h3>Order Details:</h3>
+          <p>Order ID: {data.orderItem.orderId}</p>
+          <p>Order amount: {data.orderItem.amount}</p>
+          <p>Customer Name: {user.username}</p>
+          <p>Order price: {data.orderItem.price}</p>
+        </div>
         </div>
       )}
     </>

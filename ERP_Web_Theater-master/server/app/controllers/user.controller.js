@@ -2,6 +2,7 @@ const db = require("../models");
 const User = db.user;
 const Order = db.order;
 
+
 exports.getAllUsers = async (req, res) => {
   try{
     const pageAsNumber = Number.parseInt(req.query.page);
@@ -38,7 +39,7 @@ exports.getAllUsers = async (req, res) => {
 };
 
 //3.Get one book publisher
-exports.getOneUser = async (req, res) => {
+exports.getOneUser =async (req, res) => {
   try{
     let id = req.params.id;
     console.log(id)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createBook, getGenre } from "../store/actions/Message";
+import { createBook, getBook } from "../store/actions/Message";
 import LoadingButton from '@mui/lab/LoadingButton';
 
 const AddBooks = () => {
@@ -54,7 +54,6 @@ const AddBooks = () => {
           bookGenreId:data.bookGenreId,
           bookLanguageId:data.bookLanguageId,
           orderItemId:data.orderItemId,
-          //genreId: data.genres.content.id,
         });
         setSubmitted(true);
        

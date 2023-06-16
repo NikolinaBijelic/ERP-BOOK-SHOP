@@ -1,16 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+
 var corsOptions = {
   origin: "http://localhost:8081",
 };
 
-//const stripe = require("stripe")(process.env.STRIPE_SECRET_TEST);
-const bodyParser = require("body-parser");
-
 //middleware
 app.use(cors(corsOptions));
-//app.use("/api/checkout");
 
 app.use(express.json());
 
@@ -41,6 +38,10 @@ const Role = db.role;
 //   console.error('Unhandled Rejection at:', p, 'reason:', reason)
 //   process.exit(1)
 // });
+
+//Initialize Passport middleware
+// app.use(passport.initialize());
+// app.use(passport.authenticate('jwt', { session: false }));
 
 //testing api
 app.get("/", (req, res) => {

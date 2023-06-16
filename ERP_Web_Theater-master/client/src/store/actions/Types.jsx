@@ -13,7 +13,7 @@ export const UPDATE_THEATERS = "UPADTE_THEATERS";
 export const DELETE_THEATERS = "DELETE_THEATERS";
 export const DELETE_ALL_THEATERS = "DELETE_ALL_THEATERS";
 
-export const GET_GENRE = "GET_GENRE";
+
 
 //BOOK
 export const GET_BOOKS = "GET_BOOKS";
@@ -28,3 +28,18 @@ export const GET_ORDERS_BY_ID = "GET_ORDERS_BY_ID";
 export const CREATE_ORDER = "CREATE_ORDER";
 export const UPDATE_ORDER = "UPDATE_ORDER";
 export const DELETE_ORDER = "DELETE_ORDER";
+
+//orderitems
+export const GET_ORDERITEMS = "GET_ORDERITEMS";
+export const GET_ORDERSITEMS_BY_ID = "GET_ORDERSITEMS_BY_ID";
+export const CREATE_ORDERITEM = "CREATE_ORDERITEM";
+export const UPDATE_ORDERITEM = "UPDATE_ORDERITEM";
+export const DELETE_ORDERITEM = "DELETE_ORDERITEM";
+
+//genre
+
+export const GET_GENRES= "GET_GENRES";
+export const GET_GENRES_BY_ID = "GET_GENRES_BY_ID";
+export const CREATE_GENRE= "CREATE_GENRE";
+export const UPDATE_GENRE = "UPDATE_GENRE";
+export const DELETE_GENRE = "DELETE_GENRE";

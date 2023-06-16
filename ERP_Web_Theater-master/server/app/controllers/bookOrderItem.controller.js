@@ -99,9 +99,9 @@ const updateOrderItem = async (req, res) => {
   }catch(err){
     console.error(err)
   }
-  
- 
 };
+
+
 
 // 5.Delete order item
 const deleteOrderItem= async (req, res) => {

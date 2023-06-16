@@ -14,9 +14,11 @@ import BooksPage from "./pages/BooksPage";
 import AddBooks from "./components/AddBooks";
 import EditBook from "./components/EditBook";
 import OrderPage from "./pages/OrderPage";
+import GenresPage from "./pages/GenresPage";
 import AddOrder from "./components/AddOrder";
 import EditOrder from "./components/EditOrder";
 import Book from "./components/Book";
+import AddGenre from "./components/AddGenres";
 
 /*import BoardModerator from "./components/board-moderator.component";*/
 import BoardAdmin from "./pages/AdminPage";
@@ -136,6 +138,7 @@ class App extends Component {
               {/* <Route path="/mod" component={BoardModerator} /> */}
               <Route path="/admin" element={<BoardAdmin />} />
               <Route path="/api/book" element={<BooksPage />} />
+             
               <Route
                 path="/api/create-book"
                 element={<AddBooks />}
@@ -147,6 +150,16 @@ class App extends Component {
                 element={<AddOrder/>}
               />
               <Route path="/order/:id" element={<EditOrder/>} />
+              
+              <Route path="/api/genre" element={<GenresPage />} />
+              <Route
+                path="/api/create-genre"
+                element={<AddGenre/>}
+              />
+              <Route path="/genre/:id" element={<EditOrder/>} />
+
+
+
            <Route
                 path="/book-payment/:id"
                 element={<Book />}

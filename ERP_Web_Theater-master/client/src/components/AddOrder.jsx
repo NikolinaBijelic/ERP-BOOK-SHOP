@@ -41,6 +41,8 @@ const AddOrders = () => {
           date: data.date,
           //genreId: data.genres.content.id,
         });
+   
+        setLoading(false);
         setSubmitted(true);
        
       })
@@ -50,6 +52,7 @@ const AddOrders = () => {
       })
       .catch((e) => {
         console.log(e);
+        setLoading(false);
       });
   };
   const newOrder = () => {
@@ -68,30 +71,18 @@ const AddOrders = () => {
         </div>
       ) : (
         <div>
+               
           <div className="form-group">
             <label htmlFor="order">Porudzbina</label>
             <input
-              type="text"
+              type="date"
               className="form-control"
               id="date"
               required
-              text="order name"
-              value={order.id}
-              onChange={handleInputChange}
-              name="id"
-            />
-          </div>            
-          <div className="form-group">
-            <label htmlFor="order">Porudzbina</label>
-            <input
-              type="text"
-              className="form-control"
-              id="status"
-              required
               text="order status"
-              value={order.Orderstatus}
+              value={order.date}
               onChange={handleInputChange}
-              name="Orderstatus"
+              name="date"
             />
           </div>     
           {/*      <div className="form-group">
